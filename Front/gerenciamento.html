@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gerenciamento do Cartão - Frontend</title>
+    <link rel="stylesheet" href="styles/card.css" />
+    <link rel="stylesheet" href="styles/gerenciamento.css" />
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-left">
+            <span class="menu-icon" role="button" aria-label="Menu"><span></span><span></span><span></span></span>
+            <span class="logo-area">MeuFinanceiro</span>
+        </div>
+        <div class="topbar-right">
+            <div class="user-info">
+                <span class="user-name" id="userNameDisplay">Carregando...</span>
+                <span class="logout">LOG-OUT</span>
+            </div>
+            <span class="settings-icon" role="button" aria-label="Configurações">&#9881;</span>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-sidebar" aria-label="Fechar Sidebar">&times;</button>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="index.html">Meus Cartões</a>
+            <a href="#">Perfil</a>
+            <a href="#">Configurações</a>
+            <a href="#">Sair</a>
+        </nav>
+    </div>
+
+    <main class="detalhes-container">
+        <div class="voltar-container">
+            <a href="index.html" class="btn-voltar">&larr; Voltar para Cartões</a>
+        </div>
+
+        <div class="cartao-detalhes" id="cartaoDetalhesContainer">
+            <p class="placeholder-mensagem">Carregando dados do cartão...</p>
+        </div>
+
+        <div class="resumo-financeiro">
+            <h2>Resumo Financeiro</h2>
+            <div class="resumo-cards">
+                <div class="resumo-card">
+                    <h3>Despesas</h3>
+                    <p class="valor" id="total-despesas">R$ 0,00</p>
+                </div>
+                <div class="resumo-card">
+                    <h3>Assinaturas</h3>
+                    <p class="valor" id="total-assinaturas">R$ 0,00</p>
+                </div>
+                <div class="resumo-card">
+                    <h3>Parcelas Pendentes</h3>
+                    <p class="valor" id="total-parcelas">R$ 0,00</p>
+                </div>
+                <div class="resumo-card total">
+                    <h3>Total na Fatura</h3>
+                    <p class="valor" id="total-geral">R$ 0,00</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="abas-container">
+            <div class="abas">
+                <button class="aba ativa" data-aba="despesas">Despesas</button>
+                <button class="aba" data-aba="assinaturas">Assinaturas</button>
+                <button class="aba" data-aba="parcelas">Parcelas</button>
+            </div>
+
+            <div class="conteudo-abas">
+                <div class="conteudo-aba ativo" id="conteudo-despesas" data-conteudo-aba="despesas">
+                    <div class="acoes">
+                        <button class="btn-adicionar" id="btn-adicionar-despesa">+ Nova Despesa</button>
+                    </div>
+                    <div class="lista-itens" id="lista-despesas">
+                        <p class="mensagem-vazio placeholder-mensagem">Carregando despesas...</p>
+                    </div>
+                </div>
+
+                <div class="conteudo-aba" id="conteudo-assinaturas" data-conteudo-aba="assinaturas">
+                    <div class="acoes">
+                        <button class="btn-adicionar" id="btn-adicionar-assinatura">+ Nova Assinatura</button>
+                    </div>
+                    <div class="lista-itens" id="lista-assinaturas">
+                        <p class="mensagem-vazio placeholder-mensagem">Carregando assinaturas...</p>
+                    </div>
+                </div>
+
+                <div class="conteudo-aba" id="conteudo-parcelas" data-conteudo-aba="parcelas">
+                    <div class="acoes">
+                        <button class="btn-adicionar" id="btn-adicionar-parcela">+ Nova Compra Parcelada</button>
+                    </div>
+                    <div class="lista-itens" id="lista-parcelas">
+                        <p class="mensagem-vazio placeholder-mensagem">Carregando parcelas...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const menuIcon = document.querySelector('.menu-icon');
+        const closeSidebarBtn = document.querySelector('.close-sidebar');
+        if (menuIcon) menuIcon.addEventListener('click', (e) => { e.stopPropagation(); if (sidebar) sidebar.classList.add('open'); });
+        if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', (e) => { e.stopPropagation(); if (sidebar) sidebar.classList.remove('open'); });
+        document.addEventListener('click', (e) => { if (sidebar && sidebar.classList.contains('open') && !e.target.closest('.sidebar') && !e.target.closest('.menu-icon')) { sidebar.classList.remove('open'); } });
+    </script>
+    <script src="gerenciamento.js"></script>
+</body>
+</html>

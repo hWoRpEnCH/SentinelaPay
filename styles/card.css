@@ -1,0 +1,449 @@
+/* RESET */
+body {
+    background: #f5f6fa;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Facilita o blur e evita scroll estranho */
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+/* CARTÕES */
+.card {
+    width: 320px;
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    position: relative;
+    margin-top: 150px;
+    
+    padding: 24px 14px 90px 14px; /* padding igual nos dois lados */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.4s, margin-left 0.4s;
+    background: #fff;
+}
+
+/* Cores específicas para cada cartão */
+.card.nubank {
+    background: #8a05be;
+    color: #fff;
+}
+.card.bb {
+    background:#fdfc32;
+    color: #465efc;
+}
+.card.caixa {
+    background: #0039ba;
+    color: #fff;
+}
+
+/* Faz o cartão selecionado ir para a primeira posição */
+.cards-container.expanded .card {
+    order: 1;
+    opacity: 0.6;
+    filter: blur(2px);
+    transform: scale(0.95);
+    transition:         
+        opacity 0.9s cubic-bezier(.4,2,.6,1),
+        filter 0.9s cubic-bezier(.4,2,.6,1),
+        transform 1s cubic-bezier(.4,2,.6,1),
+        margin-left 0.9s cubic-bezier(.4,2,.6,1),
+        order 1s cubic-bezier(.4,2,.6,1),
+        box-shadow 0.9s cubic-bezier(.4,2,.6,1);
+
+}
+
+.cards-container.expanded .card.primeiro {
+    order: 0;
+    transform: scale(1.07) translateX(-30px);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+    opacity: 1;
+    filter: none;
+    z-index: 20;
+}
+
+.cards-container.expanded .card.selected {
+    opacity: 1;
+    filter: none;
+    transform: scale(1.07);
+    margin-left: 0;
+    z-index: 20;
+    
+}
+
+/* MINI MENU como mini aba ao lado do cartão selecionado */
+.mini-menu {
+    position: absolute;
+    top: 0;
+    left:370px;
+    width: 100%;
+    min-height: 220px;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px #0002;
+    background: #fff;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(40px) scale(0.96);
+    transition: opacity 0.25s, transform 0.25s;
+    z-index: 30;
+    padding: 24px 20px;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Botão de fechar o mini menu */
+.mini-menu .fechar-menu {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 40;
+    padding: 0;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+.mini-menu .fechar-menu:hover {
+    opacity: 1;
+}
+
+/* Mostra o mini menu só no cartão selecionado */
+.cards-container.expanded .card.selected .mini-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0) scale(1);
+}
+
+/* Cor do mini menu igual ao cartão */
+.card.nubank .mini-menu {
+    background: #8a05be;
+    color: #fff;
+}
+.card.bb .mini-menu {
+    background: #fdfc32;
+    color: #465efc;
+}
+.card.caixa .mini-menu {
+    background: #0039ba;
+    color: #fff;
+}
+
+/* Esconde os botões dos cartões por padrão */
+.card .card-buttons {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+/* Mostra os botões apenas no cartão selecionado */
+.cards-container.expanded .card.selected .card-buttons {
+    opacity: 1;
+    pointer-events: auto;
+}
+/* TOPO */
+.topbar {
+    width: 100vw;
+    height: 70px;
+    background: linear-gradient(to right, #2f1863, #533891);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* alto para ficar sempre na frente */
+    box-sizing: border-box;
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    margin-right: 24px;
+}
+
+.menu-icon span {
+    display: block;
+    width: 32px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 12px;
+}
+
+.user-name {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.logout {
+    color: #fff;
+    font-size: 1rem;
+    font-style: italic;
+    opacity: 0.8;
+    margin-top: 2px;
+}
+
+.settings-icon {
+    font-size: 1.7rem;
+    color: #fff;
+    margin-top: 4px;
+    cursor: pointer;
+}
+/* Ajuste para a bandeira Mastercard */
+.card .bandeira {
+    width: 48px;
+    height: 36px;
+    object-fit: contain;
+    position: static; /* Remova o absolute */
+    top: unset;
+    right: unset;
+}
+.card .logo{
+    height: 90px;
+    object-fit: contain;
+}
+
+/* Card header: logos lado a lado */
+.card-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    position: relative; /* Para garantir alinhamento */
+}
+
+/* Botões maiores e centralizados */
+.card-buttons {
+    width: 90%;              /* Reduz um pouco a largura para dar espaço nas laterais */
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* Centraliza os botões no eixo horizontal */
+    gap: 16px;
+    padding: 0;
+    margin-top: 49px;
+}
+
+.card-buttons button {
+    width: 100%;
+    max-width: 260px;        /* Limita a largura máxima para não encostar nas bordas */
+    min-width: 120px;
+    margin: 0 auto;          /* Garante centralização */
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.22);
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+    transition: 
+        background 0.2s,
+        color 0.2s,
+        box-shadow 0.2s,
+        transform 0.1s;
+}
+
+.card-buttons button:active {
+    transform: scale(0.97) translateX(-2px);
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.08);
+}
+
+/* Cor da borda e texto para cada cartão */
+.card.nubank .card-buttons button {
+    border-color: rgba(255, 255, 255, 0.8);
+    color: #fff;
+}
+
+.card.bb .card-buttons button {
+    border-color: rgba(34, 34, 34, 0.7);
+    color: #465efc;
+}
+
+.card.caixa .card-buttons button {
+    border-color: rgba(255, 255, 255, 0.8);
+    color: #fff;
+}
+
+/* Hover: fundo sutil */
+.card-buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+/* Hover específico para o cartão BB (texto escuro) */
+.card.bb .card-buttons button:hover {
+    background-color: rgba(34, 34, 34, 0.1);
+    color: #465efc;
+}
+
+
+/* CARDS CONTAINER */
+.cards-container {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 48px;
+    position: relative;
+    width: 90vw;
+    z-index: 10;
+    height: auto;
+}
+
+/* Blur no background quando cartão está expandido */
+body.blur::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    backdrop-filter: blur(6px);
+    background: rgba(0,0,0,0.08);
+    pointer-events: none;
+}
+
+/* Animação ao passar o mouse por cima do cartão (quando não está selecionado) */
+.card:hover:not(.selected) {
+    transform: scale(1.04) translateY(-8px);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+    transition: 
+        transform 0.3s cubic-bezier(.4,2,.6,1),
+        box-shadow 0.3s cubic-bezier(.4,2,.6,1);
+    z-index: 10;
+}
+
+/* SIDEBAR */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 270px;
+    height: 100vh;
+    background: linear-gradient(160deg, #2f1863 70%, #533891 100%);
+    box-shadow: 2px 0 16px #0002;
+    z-index: 2000;
+    padding: 32px 18px 18px 18px;
+    transform: translateX(-110%);
+    transition: transform 0.9s;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.sidebar.open {
+    transform: translateX(0);
+}
+.sidebar .close-sidebar {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.2rem;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+.sidebar .close-sidebar:hover {
+    opacity: 1;
+}
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 48px;
+}
+.sidebar nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.18rem;
+    font-weight: 500;
+    padding: 8px 0;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+.sidebar nav a:hover {
+    background: rgba(255,255,255,0.09);
+    color: #ffe;
+}
+
+/* Estilo para o número do cartão */
+.card-number {
+    letter-spacing: 2px;
+    font-size: 1.3rem;
+    font-family: 'Segoe UI Mono', monospace;
+    user-select: none;
+    transition: color 0.2s;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .cards-container {
+        width: 98vw;
+        height: 220px;
+    }
+    .card {
+        width: 120px;
+        height: 180px;
+        margin-left: -36px;
+        font-size: 1rem;
+    }
+    .mini-menu {
+        width: 160px;
+        min-height: 120px;
+        padding: 12px 8px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .cards-container {
+        width: 100vw;
+        min-width: 0;
+        height: 420px;
+    }
+    .card {
+        width: 90vw;
+        min-width: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-left: 0; /* Remove sobreposição para celular */
+    }
+}

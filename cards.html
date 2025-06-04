@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cartões Bancários</title>
+    <link rel="stylesheet" href="styles/card.css" />
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-left">
+            <span class="menu-icon" role="button" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+            <span class="logo-area"></span>
+        </div>
+        <div class="topbar-right">
+            <div class="user-info">
+                <span class="user-name">NOME QUE VAI APARECER</span>
+                <a href="#"><span class="logout">LOG-OUT</span></a>
+    </header>
+
+    <!-- Adicione logo após o </header> -->
+    <div class="sidebar" id="sidebar">
+        <button class="close-sidebar" aria-label="Fechar Sidebar">&times;</button>
+        <nav>
+            <a class="menu" href="index.html">Início</a>
+            <a href="#">Perfil</a>
+            <span class="settings-icon" role="button" aria-label="Configurações">&#9881;</span>
+        </nav>
+    </div>
+
+    <main>
+        <div class="cards-container">
+            <!-- Cartão Nubank -->
+            <div class="card nubank">
+                <div class="card-header">
+                    <img src="https://logodownload.org/wp-content/uploads/2019/08/nubank-logo-1.png" class="logo" alt="Nubank" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" class="bandeira" alt="Mastercard" />
+                </div>
+                <div class="card-number" data-full="1234 5678 9012 3456">**** **** **** 3456</div>
+                <div class="card-buttons">
+                    <a href="Front/gerenciamento.html"><button>Ver Detalhes</button></a>
+                    <a href="#"><button>Editar</button></a>
+                    <a href="#"><button>Excluir</button></a>
+                </div>
+                <div class="mini-menu"></div>
+            </div>
+
+            <!-- Cartão BB -->
+            <div class="card bb">
+                <div class="card-header">
+                    <img src="https://t.ctcdn.com.br/uty-qsFeDcV-IrDWVSpY3HmGx_g=/i620291.jpeg" class="logo" alt="Banco do Brasil" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" class="bandeira" alt="Mastercard" />
+                </div>
+                <div class="card-number" data-full="4321 8765 4321 1234">**** **** **** 1234</div>
+                <div class="card-buttons">
+                    <a href="Front/gerenciamento.html"><button>Ver Detalhes</button></a>
+                    <a href="#"><button>Editar</button></a>
+                    <a href="#"><button>Excluir</button></a>
+                </div>
+                <div class="mini-menu"></div>
+            </div>
+
+            <!-- Cartão Caixa -->
+            <div class="card caixa">
+                <div class="card-header">
+                    <img src="https://turismo.antoniocarlos.sc.gov.br/uploads/sites/36/2022/10/2606806.png" class="logo" alt="Caixa" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" class="bandeira" alt="Mastercard" />
+                </div>
+                <div class="card-number" data-full="5678 1234 5678 9876">**** **** **** 9876</div>
+                <div class="card-buttons">
+                    <a href="Front/gerenciamento.html"><button>Ver Detalhes</button></a>
+                    <a href="#"><button>Editar</button></a>
+                    <a href="#"><button>Excluir</button></a>
+                </div>
+                <div class="mini-menu"></div>
+            </div>
+        </div>
+    </main>
+    <script src="script/cards.js"></script>
+</body>
+</html>

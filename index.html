@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SentinelaPay</title>
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+  <body id="Home">
+    <!--cabeçalho-->
+
+    <header>
+      <nav>
+        <a href="Home.html">Início</a>
+        <a href="Login.html">Login</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </header>
+
+    <main>
+      <!--titulo e descrição-->
+
+      <div class="titulo">
+        <h1>SentinelaPay</h1>
+      </div class="all">
+      <div class="todosub">
+        <div class="sub">
+          <H2 class="subtitulo">Sua carteira digital segura e inteligente</H2>
+          <p id="Sobre" class="desc">
+              SentinelaPay é uma plataforma de segurança digital que reúne todos os
+              seus cartões em um só lugar. Mais do que uma carteira inteligente,
+              oferecemos controle total dos seus gastos com tabelas, gráficos e
+              estatísticas detalhadas. Com proteção avançada e praticidade, cuidamos
+              da sua segurança enquanto você cuida do seu dinheiro.
+          </p>
+          <a href="Login.html"><button class="but">Comece agora</button></a>
+        </div>
+        <div class="">
+          <img class="imgs" src="https://i.pinimg.com/736x/88/58/38/88583807b29582bae68cd9611be1eadf.jpg" alt="">
+          <img class="imgs" src="https://pontospravoar.com/wp-content/uploads/2024/08/Ourocard.jpg" alt="">
+        </div>
+      </div>
+      
+
+      <!--Funcionalidades-->
+
+      <h2 id="Funcionalidades">Funcionalidades da SentinelaPay</h2>
+      <div class="container">
+
+        <section>
+            <h3>Todos os seus cartões em um só lugar</h3>
+            <p>
+             Armazene com segurança os cartões de diferentes bancos e instituições
+             em uma única carteira digital. Acesse e utilize com praticidade, onde
+             e quando quiser.
+            </p>
+        </section>
+        
+        <section>
+            <h3>Análise inteligente de gastos</h3>
+            <p>
+             Visualize seus gastos organizados em tabelas claras e gráficos
+             interativos. Entenda para onde vai seu dinheiro e tome decisões com
+             mais consciência.
+            </p>
+        </section>
+
+        <section>
+            <h3>Estatísticas mensais automatizadas</h3>
+            <p>
+             Acompanhe seus hábitos financeiros com relatórios mensais completos.
+             Receba alertas sobre padrões de consumo, gastos fora do comum e dicas
+             personalizadas.
+            </p>
+        </section>
+
+        <section>
+            <h3>Segurança de ponta</h3>
+            <p>
+             Utilizamos criptografia de alto nível e autenticação em duas etapas
+             para garantir a proteção total dos seus dados e transações.
+            </p>
+        </section>
+
+        <section>
+            <h3>Interface rápida e intuitiva</h3>
+            <p>
+             Navegue por um sistema simples, moderno e direto. Tudo foi pensado
+             para facilitar sua vida financeira, sem complicação.
+            </p>
+        </section>
+
+        <section>
+            <h3>Integração com bancos e alertas instantâneos</h3>
+            <p>
+             Conecte sua conta bancária à SentinelaPay e acompanhe suas movimentações em tempo real. Receba alertas sobre transações, saldo disponível e vencimentos importantes, tudo em um só lugar.
+            </p>
+        </section>
+
+      </div>
+    </main>
+
+    <!--Footer-->
+
+    <footer>
+      <div>
+        <p>SentinelaPay © 2025 - Todos os direitos reservados.</p>
+        <p>Sua carteira digital segura e inteligente.</p>
+        <nav>
+          <a href="#Sobre">Sobre</a>
+          <a href="#Politica">Política de Privacidade</a>
+          <a href="#Termos">Termos de uso</a>
+        </nav>
+      </div>
+
+      <div id="Contato" class="rede">
+        <p>SAC: suporte@sentinelapay.com</p>
+        <p>localização: Brasíla-DF, Brasil</p>
+        <p>Siga-nos:</p>
+        <nav>
+          <a href="">Facebook</a>
+          <a href="">Instagram</a>
+          <a href="">LinkedIn</a>
+          <a href="">Twitter/X</a>
+        </nav>
+      </div>
+    </footer>
+    <script>
+const backgrounds = [
+//nubank
+  {
+    image: 'url("https://www.datocms-assets.com/120597/1748356031-tom-felton-um-cartao-que-faz-mais-por-voce.jpg?auto=format&crop=focalpoint&dpr=1&fit=crop&fp-x=0.49&fp-y=0.0&w=2000&q=60")',
+    palette: {
+      '--primary': '#4B0082',
+      '--secondary': '#7B1FA2',
+      '--accent': '#D1C4E9',
+      '--background': '#FFFFFF',
+      '--text': '#1F1F1F'
+    }
+  },
+//banco do brasil
+  {
+    image: 'url("https://cdn.bb.com.br/wp-content/uploads/2025/02/Banner_Full-Pra_Voce-Contas-Cartao-DT.webp")',
+    palette: {
+      '--primary': '#1976D2',
+      '--secondary': '#1565C0',
+      '--accent': '#90CAF9',
+      '--background': '#E3F2FD',
+      '--text': '#0D1333'
+    }
+  },
+//caixa economica
+{
+    image: 'url("https://imperiodasmilhas.com/wp-content/uploads/2020/06/cartao-de-credito-caixa-sim.png")',
+    palette: {
+        '--primary': '#0D47A1',      // azul escuro
+        '--secondary': '#42A5F5',    // azul claro
+        '--accent': '#FFA726',       // laranja
+        '--background': '#FFFFFF',   // branco
+        '--text': '#0D1333'
+    }
+}
+];
+
+let current = 0;
+const titulo = document.querySelector('.titulo');
+const fade = document.createElement('style');
+document.head.appendChild(fade);
+
+function applyPalette(palette) {
+  for (const key in palette) {
+    document.documentElement.style.setProperty(key, palette[key]);
+  }
+}
+
+function fadeBackground(next) {
+  // Aplica a próxima imagem no ::after e faz fade-in
+  fade.innerHTML = `.titulo::after { background-image: ${backgrounds[next].image}; opacity: 1; }`;
+  setTimeout(() => {
+    // Troca a imagem principal após o fade-in
+    titulo.style.backgroundImage = backgrounds[next].image;
+    // Esconde o ::after (fade-out)
+    fade.innerHTML = `.titulo::after { opacity: 0; }`;
+  }, 1000);
+}
+
+function changeBackground() {
+  const next = (current + 1) % backgrounds.length;
+  fadeBackground(next);
+  applyPalette(backgrounds[next].palette);
+  current = next;
+}
+
+titulo.style.backgroundImage = backgrounds[0].image;
+applyPalette(backgrounds[0].palette);
+setInterval(changeBackground, 10000);
+</script>
+  </body>
+</html>

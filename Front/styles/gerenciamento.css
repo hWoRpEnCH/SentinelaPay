@@ -1,0 +1,238 @@
+/* frontend/styles/gerenciamento.css */
+main.detalhes-container {
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto; /* Centraliza e adiciona margem do topo */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.voltar-container {
+    margin-bottom: 20px;
+}
+
+.btn-voltar {
+    text-decoration: none;
+    color: #007bff;
+    padding: 8px 15px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn-voltar:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.cartao-detalhes {
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap; /* Para responsividade */
+    gap: 20px;
+    align-items: center;
+}
+
+.cartao-visual { /* Estilo para o cartão "físico" */
+    width: 280px; /* Largura similar ao cartão original */
+    height: 170px; /* Altura similar */
+    border-radius: 12px;
+    padding: 15px;
+    color: white; /* Cor do texto padrão, será sobrescrita */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0; /* Não encolher */
+}
+
+.cartao-visual-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.cartao-logo-visual { max-height: 30px; max-width: 90px; object-fit: contain; }
+.cartao-bandeira-visual { max-height: 25px; object-fit: contain; }
+.cartao-visual-numero {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.3em;
+    letter-spacing: 2px;
+    text-align: center;
+    margin: auto 0;
+}
+.cartao-visual-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75em;
+    text-transform: uppercase;
+}
+.cartao-nome-completo-visual { font-weight: 500; }
+
+.cartao-info {
+    flex-grow: 1; /* Ocupar espaço restante */
+}
+.cartao-info h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+    color: #333;
+}
+.cartao-info p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #555;
+}
+.cartao-info .numero { font-weight: bold; }
+
+.resumo-financeiro {
+    margin-bottom: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+.resumo-financeiro h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: #333;
+}
+.resumo-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+.resumo-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #e7e7e7;
+}
+.resumo-card h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1em;
+    color: #555;
+    font-weight: 500;
+}
+.resumo-card .valor {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #28a745; /* Verde para valores positivos */
+}
+.resumo-card.total .valor {
+    color: #dc3545; /* Vermelho para total da fatura */
+}
+
+
+.abas-container {
+    margin-top: 20px;
+}
+.abas {
+    display: flex;
+    border-bottom: 2px solid #dee2e6;
+    margin-bottom: -2px; /* Para sobrepor a borda do container de conteúdo */
+}
+.aba {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 1em;
+    color: #495057;
+    border-bottom: 2px solid transparent; /* Espaço para a borda ativa */
+    margin-bottom: -2px; /* Alinhar com a borda do container */
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+.aba:hover {
+    color: #0056b3;
+}
+.aba.ativa {
+    color: #007bff;
+    border-bottom-color: #007bff;
+    font-weight: bold;
+}
+
+.conteudo-abas {
+    border: 1px solid #dee2e6;
+    border-top: none; /* A borda superior é a do .abas */
+    padding: 20px;
+    border-radius: 0 0 5px 5px; /* Cantos arredondados apenas embaixo */
+}
+.conteudo-aba {
+    display: none; /* Escondido por padrão */
+}
+.conteudo-aba.ativa {
+    display: block; /* Mostra o conteúdo da aba ativa */
+}
+.conteudo-aba .acoes {
+    margin-bottom: 15px;
+    text-align: right;
+}
+.btn-adicionar {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+.btn-adicionar:hover {
+    background-color: #218838;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.item:last-child {
+    border-bottom: none;
+}
+.item-info {
+    flex-grow: 1;
+}
+.item-info .descricao {
+    font-weight: 500;
+    margin: 0 0 3px 0;
+    color: #333;
+}
+.item-info .detalhes {
+    font-size: 0.85em;
+    color: #777;
+    margin: 0;
+}
+.item-valor {
+    font-weight: bold;
+    min-width: 100px; /* Para alinhar os botões */
+    text-align: right;
+    margin-right: 15px;
+    color: #444;
+}
+.item-acoes .btn-excluir-item {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 5px;
+}
+.item-acoes .btn-excluir-item:hover {
+    color: #c82333;
+}
+
+.mensagem-vazio, .placeholder-mensagem {
+    color: #888;
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+}
+.placeholder-mensagem.erro {
+    color: #dc3545;
+    font-weight: bold;
+    font-style: normal;
+}

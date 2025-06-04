@@ -1,0 +1,233 @@
+:root {
+  --transition: background-color 1s ease, color 1s ease;
+  --primary: #4B0082;
+  --secondary: #7B1FA2;
+  --accent: #D1C4E9;
+  --background: #FFFFFF;
+  --text: #1F1F1F;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Header fixo */
+header {
+  background: rgba(255,255,255,0.92);
+  color: var(--roxo-escuro, #4B0082);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 16px 0 14px 0;
+  box-shadow: 0 4px 24px 0 rgba(76, 47, 110, 0.10);
+  backdrop-filter: blur(6px);
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+}
+
+header nav a {
+  color: var(--roxo-escuro, #4B0082);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
+  padding: 6px 18px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+header nav a:hover,
+header nav a:focus {
+  background: var(--roxo-medio, #B39DDB);
+  color: var(--branco, #fff);
+  outline: none;
+}
+
+/* Espaço para o header fixo */
+body {
+  padding-top: 100px;
+}
+
+/* Título principal */
+.titulo {
+  position: relative; /* Necessário para o pseudo-elemento */
+  overflow: hidden;
+  padding: 300px 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 18px;
+  min-height: 320px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  transition: background-color 1s, color 1s;
+  margin: 20px;
+}
+
+.titulo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Conteúdo da .titulo acima do fade */
+.titulo > * {
+  position: relative;
+  z-index: 2;
+}
+
+.titulo h1 {
+  color: var(--primary);
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.subtitulo{
+    text-align: left;
+    display: flex;
+    margin: 20px;
+}
+
+.sub{
+    margin: 20px;
+}
+.todosub{
+    display: flex;
+    gap: 100px;
+    padding: 10px;
+    
+}
+.imgs{
+    width: 350px;
+    height: 240px;
+    border-radius: 20px ;
+    margin-top: 40px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    border: none;
+    margin-left: 20px;
+}
+
+.desc{
+    padding: 20px;
+    max-width: 900px;
+}
+
+.titulo .desc {
+  font-size: 1.1rem;
+  max-width: 800px;
+}
+
+/* Botão principal */
+.but {
+  margin-top: 30px;
+  
+}
+
+button {
+  background-color: var(--secondary);
+  color: var(--background);
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 20px;
+}
+
+button:hover {
+  background-color: var(--primary);
+}
+
+/* Funcionalidades */
+main h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 50px 0 20px;
+  color: var(--primary);
+}
+
+main div section {
+  background-color: #F5F5F5;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  border-left: 5px solid var(--secondary);
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+main section h3 {
+  color: var(--text);
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.container{
+  display: flex;
+  gap: 20px; 
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 15px;
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary);
+  color: var(--background);
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 50px;
+}
+
+footer nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--background);
+}
+
+footer p {
+  margin: 8px 0;
+}
+
+/* Transição para variáveis de cor no body e elementos principais */
+body, header, footer, .titulo, button, main h2, main section h3 {
+  transition: background-color 1s, color 1s;
+}
+
